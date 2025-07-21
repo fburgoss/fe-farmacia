@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Medicamento {
-  id: string;
+  id?: string;
   nombre: string;
   principio_activo: string;
   presentacion: string;

@@ -65,16 +65,19 @@ export class Listado implements OnInit, AfterViewInit {
     this.mostrarFormulario = true;
   }
 
-  guardarMedicamento() {
-    this.medicamentoService.agregarMedicamento(this.nuevoMedicamento).subscribe({
-      next: (data) => {
-        console.log('Medicamento agregado:', data);
-        this.mostrarFormulario = false;
-        this.cargarMedicamentos(); // para recargar la tabla
-      },
-      error: (err) => console.error('Error al agregar', err)
-    });
-  }
+guardarMedicamento() {
+  const { id, ...medicamentoSinId } = this.nuevoMedicamento;
+
+  this.medicamentoService.agregarMedicamento(medicamentoSinId).subscribe({
+    next: (data) => {
+      console.log('Medicamento agregado:', data);
+      this.mostrarFormulario = false;
+      this.cargarMedicamentos();
+      this.resetearFormulario();
+    },
+    error: (err) => console.error('Error al agregar', err)
+  });
+}
 
   cancelar() {
     this.mostrarFormulario = false;
@@ -91,6 +94,19 @@ export class Listado implements OnInit, AfterViewInit {
     }
   });
 }
+
+resetearFormulario() {
+  this.nuevoMedicamento = {
+    id: '',
+    nombre: '',
+    principio_activo: '',
+    presentacion: '',
+    laboratorio: '',
+    precio: 0,
+    peso: ''
+  };
+}
+
 
 
 }
