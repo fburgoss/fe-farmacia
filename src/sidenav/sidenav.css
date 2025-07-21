@@ -1,0 +1,65 @@
+.sidenav-container {
+    height: 100vh;
+}
+
+mat-sidenav {
+    width: 250px;
+    background-color: #303F9F;
+    /* Azul intenso */
+    color: white;
+    border-right: none !important;
+    /* Quita borde derecho */
+    box-shadow: none !important;
+    /* Elimina sombra */
+}
+
+mat-toolbar {
+    background-color: #303F9F !important;
+    color: white;
+}
+
+
+.toolbar-title {
+    margin-left: 12px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+mat-nav-list mat-list-item,
+mat-nav-list mat-list-item span {
+    margin: 60px 0;
+    font-size: 16px;
+    color: white;
+}
+
+mat-list-item mat-icon {
+    margin-right: 8px;
+    color: white;
+}
+
+mat-list-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.toolbar {
+    background: #303F9F;
+    /* Igual que el sidenav */
+    color: white;
+}
+
+mat-sidenav-content {
+    margin: 0;
+    padding: 0;
+}
+
+
+mat-sidenav {
+    width: 250px;
+    background-color: #303F9F;
+    color: white;
+    border-right: none !important;
+    box-shadow: none !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}

@@ -1,0 +1,105 @@
+<h2 class="titulo-centrado">Listado de Medicamentos</h2>
+
+
+<div class="tabla-contenedor">
+<button mat-raised-button color="primary" (click)="abrirFormulario()" class="boton-agregar">
+  Agregar Medicamento
+</button>
+
+  <div *ngIf="mostrarFormulario" class="form-container mat-elevation-z8">
+    <h3>Nuevo Medicamento</h3>
+
+    <form (ngSubmit)="guardarMedicamento()" class="med-form">
+
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input matInput [(ngModel)]="nuevoMedicamento.nombre" name="nombre">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Principio Activo</mat-label>
+          <input matInput [(ngModel)]="nuevoMedicamento.principio_activo" name="principio_activo">
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Presentación</mat-label>
+          <input matInput [(ngModel)]="nuevoMedicamento.presentacion" name="presentacion">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Laboratorio</mat-label>
+          <input matInput [(ngModel)]="nuevoMedicamento.laboratorio" name="laboratorio">
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Precio</mat-label>
+          <input matInput type="number" [(ngModel)]="nuevoMedicamento.precio" name="precio">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Peso</mat-label>
+          <input matInput [(ngModel)]="nuevoMedicamento.peso" name="peso">
+        </mat-form-field>
+      </div>
+
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+        <button mat-button type="button" (click)="cancelar()">Cancelar</button>
+      </div>
+
+    </form>
+  </div>
+
+  
+  <table mat-table [dataSource]="medicamentos" matSort class="mat-elevation-z8">
+
+
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.nombre}} </td>
+    </ng-container>
+
+    <!-- Principio Activo Column -->
+    <ng-container matColumnDef="principio_activo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Principio Activo </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.principio_activo}} </td>
+    </ng-container>
+
+    <!-- Presentacion Column -->
+    <ng-container matColumnDef="presentacion">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Presentación </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.presentacion}} </td>
+    </ng-container>
+
+    <!-- Laboratorio Column -->
+    <ng-container matColumnDef="laboratorio">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Laboratorio </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.laboratorio}} </td>
+    </ng-container>
+
+    <!-- Precio Column -->
+    <ng-container matColumnDef="precio">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.precio}} </td>
+    </ng-container>
+
+    <!-- Peso Column -->
+    <ng-container matColumnDef="peso">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Peso </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.peso}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="cabecera-personalizada"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>
