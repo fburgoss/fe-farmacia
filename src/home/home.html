@@ -1,3 +1,4 @@
+
 <mat-tab-group [selectedIndex]="selectedIndex" animationDuration="500ms">
   <mat-tab>
     <img src="https://picsum.photos/800/300?random=1" alt="Imagen 1">
@@ -9,3 +10,28 @@
     <img src="https://picsum.photos/800/300?random=3" alt="Imagen 3">
   </mat-tab>
 </mat-tab-group>
+
+<div class="cards-container">
+  <mat-card class="producto-card" *ngFor="let producto of productos">
+    <img mat-card-image src="https://picsum.photos/200/150?random={{ producto.id }}" alt="{{ producto.nombre }}">
+
+    <mat-card-content>
+      <h2>{{ producto.nombre }}</h2>
+      <p>Principio activo: {{ producto.principio_activo }}</p>
+      <p>Presentación: {{ producto.presentacion }}</p>
+      <p>Laboratorio: {{ producto.laboratorio }}</p>
+      <p>Peso: {{ producto.peso }}</p>
+
+      <div class="precios">
+        <span class="precio-actual">\${{ producto.precio }}</span>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Añadir al carrito</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+
+

@@ -31,3 +31,55 @@ img,
   border: none !important;
   background-color: white;
 }
+
+
+
+
+.producto-card {
+  width: 250px;
+  margin: 10px;
+  position: relative;
+}
+
+.descuento {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #003b9e;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.precios {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.precio-anterior {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.precio-actual {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+
+
+
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px; /* Espacio entre tarjetas */
+  overflow-x: auto; /* Scroll horizontal si se sale del ancho */
+  padding: 16px 0;
+}
+
+.producto-card {
+  min-width: 250px; /* Tamaño mínimo para que se vean en fila */
+  flex: 0 0 auto; /* Para que no se estiren */
+}
+
