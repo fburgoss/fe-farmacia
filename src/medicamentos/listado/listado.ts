@@ -68,7 +68,7 @@ export class Listado implements OnInit, AfterViewInit {
 guardarMedicamento() {
   const { id, ...medicamentoSinId } = this.nuevoMedicamento;
 
-  this.medicamentoService.agregarMedicamento(medicamentoSinId).subscribe({
+  this.medicamentoService.postMedicamento(medicamentoSinId).subscribe({
     next: (data) => {
       console.log('Medicamento agregado:', data);
       this.mostrarFormulario = false;

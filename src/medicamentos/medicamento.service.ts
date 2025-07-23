@@ -10,6 +10,7 @@ export interface Medicamento {
   laboratorio: string;
   precio: number;
   peso: string;
+  destacado?: boolean;
 }
 
 @Injectable({
@@ -19,14 +20,20 @@ export class MedicamentoService {
 
   private apiUrl = 'http://localhost:8080/medicamentos';
 
-  constructor(private http: HttpClient) {}
-
+  constructor(private http: HttpClient) { }
+// muestra los medicamnetos en la tabla componente listado
   getMedicamentos(): Observable<Medicamento[]> {
     return this.http.get<Medicamento[]>(this.apiUrl);
   }
 
+// agrega medicamntos en la bd
+  postMedicamento(medicamento: Medicamento): Observable<Medicamento> {
+    return this.http.post<Medicamento>(this.apiUrl, medicamento);
+  }
 
-  agregarMedicamento(medicamento: Medicamento): Observable<Medicamento> {
-  return this.http.post<Medicamento>(this.apiUrl, medicamento);
-}
+
+  //muestra los productos destaacados componente home
+  getDestacados(): Observable<Medicamento[]> {
+    return this.http.get<Medicamento[]>(`${this.apiUrl}/destacados`);
+  }
 }

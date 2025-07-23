@@ -23,7 +23,7 @@ export class Home implements OnInit {
       this.selectedIndex = (this.selectedIndex + 1) % 3;
     }, 3000);
 
-    this.medicamentoService.getMedicamentos().subscribe(data => {
+    this.medicamentoService.getDestacados().subscribe(data => {
       this.productos = data;
     });
   }
